@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
-function OptionAsk() {
+function OptionAsk({ onChange }) {
+  const [answers, setAnswers] = useState("afteranswer");
+  const [themes, setThemes] = useState("allthemes");
+
+  function onChangeValueAnswer(event) {
+    setAnswers(event.target.value);
+    console.log(event.target.value);
+  }
+
+  function onChangeValueThemes(event) {
+    setThemes(event.target.value);
+    onChange(event.target.value);
+  }
+
   return (
     <div>
       <h2>Когда будут появляться ответы?</h2>
-      <form>
+      <form onChange={onChangeValueAnswer}>
         <p>
-          <input type="radio" name="answers" value="afteranswer" checked />
+          <input
+            type="radio"
+            name="answers"
+            value="afteranswer"
+            checked={answers === "afteranswer"}
+          />
           Сразу после подтверждения ответа
         </p>
         <p>
@@ -15,9 +33,14 @@ function OptionAsk() {
         </p>
       </form>
       <h2>Формат теста</h2>
-      <form>
+      <form onChange={onChangeValueThemes}>
         <p>
-          <input type="radio" name="themes" value="allthemes" checked />
+          <input
+            type="radio"
+            name="themes"
+            value="allthemes"
+            checked={themes === "allthemes"}
+          />
           Все темы
         </p>
         <p>

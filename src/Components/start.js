@@ -2,7 +2,7 @@ import React from "react";
 
 function Start() {
   return (
-    <div className="startName">
+    <div>
       <h1>PPL zkusebni test</h1>
       <p>
         Мы рады приветствовать вас в нашем приложении по подготовке к экзамену
