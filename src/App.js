@@ -10,22 +10,27 @@ function App() {
   const [showOption, setShowOption] = useState(true);
   const [showThemeList, setShowThemeList] = useState(true);
   const [isShownList, setIsShownList] = useState(false);
-  const [array, setArray] = useState([]);
   const [themes, setThemes] = useState("");
 
+  var array = [];
+
   useEffect(() => {
+    let userThemes = [1, 3, 7];
+    let url = "https://ppl-test-app.herokuapp.com/ppl_api/?";
+
+    for (let i = 0; i < userThemes.length; i++) {
+      url += "topics=" + userThemes[i] + "&";
+    }
+
+    const topics = url.slice(0, -1);
+    console.log(topics);
+
     const getData = async () => {
-      const res = await axios
-        .get("https://ppl-test-app.herokuapp.com/ppl_api", {
-          params: {
-            topics: 1,
-          },
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      setArray(res.data);
-      console.log(res.data);
+      const res = await axios.get(topics).catch((error) => {
+        console.error(error);
+      });
+      array.push(res.data);
+      console.log(array);
     };
 
     getData();
