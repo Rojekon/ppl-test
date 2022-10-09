@@ -1,11 +1,27 @@
 import React, { useState } from "react";
 
-function ThemesList() {
-  const [checked, setChecked] = useState(false);
+function ThemesList({ onChange }) {
+  const [themesinfo, setThemesInfo] = useState({
+    themes: [],
+  });
 
-  function handleChange() {
-    setChecked(!checked);
-  }
+  const handleChange = (e) => {
+    const { value, checked } = e.target;
+    const { themes } = themesinfo;
+
+    console.log(`${value} is ${checked}`);
+
+    if (checked) {
+      setThemesInfo({
+        themes: [...themes, value],
+      });
+    } else {
+      setThemesInfo({
+        themes: themes.filter((e) => e !== value),
+      });
+    }
+    console.log(themesinfo);
+  };
 
   return (
     <div>
@@ -14,63 +30,56 @@ function ThemesList() {
         <input
           type="checkbox"
           id="1"
-          name="theme"
+          name="themes"
           value="1"
-          checked={checked}
           onChange={handleChange}
         />{" "}
         Theme one
         <input
           type="checkbox"
           id="2"
-          name="theme"
+          name="themes"
           value="2"
-          checked={checked}
           onChange={handleChange}
         />{" "}
         Theme two
         <input
           type="checkbox"
           id="3"
-          name="theme"
+          name="themes"
           value="3"
-          checked={checked}
           onChange={handleChange}
         />{" "}
         Theme three
         <input
           type="checkbox"
           id="4"
-          name="theme"
+          name="themes"
           value="4"
-          checked={checked}
           onChange={handleChange}
         />{" "}
         Theme four
         <input
           type="checkbox"
           id="5"
-          name="theme"
+          name="themes"
           value="5"
-          checked={checked}
           onChange={handleChange}
         />{" "}
         Theme five
         <input
           type="checkbox"
           id="6"
-          name="theme"
+          name="themes"
           value="6"
-          checked={checked}
           onChange={handleChange}
         />{" "}
         Theme six
         <input
           type="checkbox"
           id="7"
-          name="theme"
+          name="themes"
           value="7"
-          checked={checked}
           onChange={handleChange}
         />{" "}
         Theme seven

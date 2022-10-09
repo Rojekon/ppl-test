@@ -11,10 +11,11 @@ function App() {
   const [showThemeList, setShowThemeList] = useState(true);
   const [isShownList, setIsShownList] = useState(false);
   const [themes, setThemes] = useState("");
+  const [themesinfo, setThemesInfo] = useState([]);
   const [array, setArray] = useState([]);
 
   useEffect(() => {
-    let userThemes = [1, 2, 3];
+    let userThemes = themesinfo;
     let url = "https://ppl-test-app.herokuapp.com/ppl_api/?";
 
     for (let i = 0; i < userThemes.length; i++) {
@@ -37,6 +38,11 @@ function App() {
   function onChangeValueThemes(themes) {
     setThemes(themes);
     console.log(themes);
+  }
+
+  function handleChange(themesinfo) {
+    setThemesInfo(themesinfo);
+    console.log(themesinfo);
   }
 
   function handleClick() {
@@ -84,7 +90,7 @@ function App() {
             <>
               {showThemeList ? (
                 <div className="themes">
-                  {isShownList && <ThemesList />}
+                  {isShownList && <ThemesList onChange={handleChange} />}
                   <button onClick={hideThemeList}>Submit</button>
                 </div>
               ) : (
