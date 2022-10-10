@@ -15,15 +15,16 @@ function App() {
   const [array, setArray] = useState([]);
 
   useEffect(() => {
-    let userThemes = themesinfo;
+    const newArr = Object.values(themesinfo);
+    let userThemes = newArr;
     let url = "https://ppl-test-app.herokuapp.com/ppl_api/?";
+    console.log(userThemes);
 
     for (let i = 0; i < userThemes.length; i++) {
       url += "topics=" + userThemes[i] + "&";
     }
 
     const topics = url.slice(0, -1);
-    console.log(topics);
 
     const getData = async () => {
       const res = await axios.get(topics).catch((error) => {
@@ -33,7 +34,7 @@ function App() {
     };
 
     getData();
-  }, []);
+  }, [themesinfo]);
 
   function onChangeValueThemes(themes) {
     setThemes(themes);
@@ -42,7 +43,6 @@ function App() {
 
   function handleChange(themesinfo) {
     setThemesInfo(themesinfo);
-    console.log(themesinfo);
   }
 
   function handleClick() {
@@ -94,7 +94,10 @@ function App() {
                   <button onClick={hideThemeList}>Submit</button>
                 </div>
               ) : (
-                <QuestionData array={array} />
+                <>
+                  {console.log(themesinfo)}
+                  <QuestionData array={array} />
+                </>
               )}
             </>
           )}{" "}

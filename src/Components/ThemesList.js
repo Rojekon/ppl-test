@@ -9,8 +9,6 @@ function ThemesList({ onChange }) {
     const { value, checked } = e.target;
     const { themes } = themesinfo;
 
-    console.log(`${value} is ${checked}`);
-
     if (checked) {
       setThemesInfo({
         themes: [...themes, value],
@@ -20,8 +18,8 @@ function ThemesList({ onChange }) {
         themes: themes.filter((e) => e !== value),
       });
     }
-    console.log(themesinfo);
   };
+  onChange(themesinfo);
 
   return (
     <div>
