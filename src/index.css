@@ -36,7 +36,6 @@ body {
   height: auto;
 }
 
-/* QUESTION/TIMER/LEFT SECTION */
 .question-section {
   width: 100%;
   position: relative;
@@ -72,12 +71,17 @@ body {
   text-align: center;
 }
 
+.option-page {
+  border: #16c5ec;
+  border-radius: 20px;
+}
+
 .option {
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-/* ANSWERS/RIGHT SECTION */
+
 .answer-section {
   width: 50%;
   display: flex;

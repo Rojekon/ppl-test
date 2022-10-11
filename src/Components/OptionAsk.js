@@ -15,7 +15,7 @@ function OptionAsk({ onChange }) {
   }
 
   return (
-    <div>
+    <div className="option-page">
       <h2>Когда будут появляться ответы?</h2>
       <form onChange={onChangeValueAnswer}>
         <p>

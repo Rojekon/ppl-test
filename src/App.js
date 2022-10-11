@@ -4,6 +4,7 @@ import OptionAsk from "./Components/OptionAsk";
 import QuestionData from "./Components/QuestionData";
 import ThemesList from "./Components/ThemesList";
 import axios from "axios";
+import "./index.css";
 
 function App() {
   const [showStart, setShowStart] = useState(true);
@@ -15,7 +16,7 @@ function App() {
   const [array, setArray] = useState([]);
 
   useEffect(() => {
-    const newArr = Object.values(themesinfo);
+    const newArr = Object.values(themesinfo).flat();
     let userThemes = newArr;
     let url = "https://ppl-test-app.herokuapp.com/ppl_api/?";
     console.log(userThemes);
@@ -91,11 +92,21 @@ function App() {
               {showThemeList ? (
                 <div className="themes">
                   {isShownList && <ThemesList onChange={handleChange} />}
-                  <button onClick={hideThemeList}>Submit</button>
+                  <button
+                    onClick={() => {
+                      if (array.length === 0) {
+                        alert("Please, select some topics.");
+                      } else {
+                        hideThemeList();
+                        console.log(array);
+                      }
+                    }}
+                  >
+                    Submit
+                  </button>
                 </div>
               ) : (
                 <>
-                  {console.log(themesinfo)}
                   <QuestionData array={array} />
                 </>
               )}
