@@ -11,7 +11,8 @@ function App() {
   const [showOption, setShowOption] = useState(true);
   const [showThemeList, setShowThemeList] = useState(true);
   const [isShownList, setIsShownList] = useState(false);
-  const [themes, setThemes] = useState("");
+  const [themes, setThemes] = useState("allthemes");
+  const [answers, setAnswers] = useState("afteranswer");
   const [themesinfo, setThemesInfo] = useState([]);
   const [array, setArray] = useState([]);
 
@@ -36,11 +37,6 @@ function App() {
 
     getData();
   }, [themesinfo]);
-
-  function onChangeValueThemes(themes) {
-    setThemes(themes);
-    console.log(themes);
-  }
 
   function handleChange(themesinfo) {
     setThemesInfo(themesinfo);
@@ -73,7 +69,16 @@ function App() {
         <>
           {showOption ? (
             <div className="option">
-              <OptionAsk onChange={onChangeValueThemes} />
+              <OptionAsk
+                onChangeAnswer={(answers) => {
+                  setAnswers(answers);
+                  console.log(answers);
+                }}
+                onChangeThemes={(themes) => {
+                  setThemes(themes);
+                  console.log(themes);
+                }}
+              />
               <button
                 onClick={() => {
                   if (themes === "choosethemes") {
@@ -99,6 +104,7 @@ function App() {
                       } else {
                         hideThemeList();
                         console.log(array);
+                        console.log(answers);
                       }
                     }}
                   >
@@ -107,7 +113,7 @@ function App() {
                 </div>
               ) : (
                 <>
-                  <QuestionData array={array} />
+                  <QuestionData array={array} answers={answers} />
                 </>
               )}
             </>

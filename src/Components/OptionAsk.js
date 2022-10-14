@@ -1,17 +1,18 @@
 import React, { useState } from "react";
+import "./componentstyles.css";
 
-function OptionAsk({ onChange }) {
+function OptionAsk({ onChangeAnswer, onChangeThemes }) {
   const [answers, setAnswers] = useState("afteranswer");
   const [themes, setThemes] = useState("allthemes");
 
   function onChangeValueAnswer(event) {
     setAnswers(event.target.value);
-    console.log(event.target.value);
+    onChangeAnswer(event.target.value);
   }
 
   function onChangeValueThemes(event) {
     setThemes(event.target.value);
-    onChange(event.target.value);
+    onChangeThemes(event.target.value);
   }
 
   return (

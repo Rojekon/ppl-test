@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./componentstyles.css";
 
 function ThemesList({ onChange }) {
   const [themesinfo, setThemesInfo] = useState({
@@ -22,7 +23,7 @@ function ThemesList({ onChange }) {
   onChange(themesinfo);
 
   return (
-    <div>
+    <div className="theme-list">
       <h1>Choose your themes:</h1>
       <div>
         <input
@@ -32,7 +33,7 @@ function ThemesList({ onChange }) {
           value="1"
           onChange={handleChange}
         />{" "}
-        Theme one
+        1. Právní předpisy v oblasti letectví
         <input
           type="checkbox"
           id="2"
@@ -40,7 +41,7 @@ function ThemesList({ onChange }) {
           value="2"
           onChange={handleChange}
         />{" "}
-        Theme two
+        2. Lidská výkonnost
         <input
           type="checkbox"
           id="3"
@@ -48,7 +49,7 @@ function ThemesList({ onChange }) {
           value="3"
           onChange={handleChange}
         />{" "}
-        Theme three
+        3. Meteorologie
         <input
           type="checkbox"
           id="4"
@@ -56,7 +57,7 @@ function ThemesList({ onChange }) {
           value="4"
           onChange={handleChange}
         />{" "}
-        Theme four
+        4. Komunikace
         <input
           type="checkbox"
           id="5"
@@ -64,7 +65,7 @@ function ThemesList({ onChange }) {
           value="5"
           onChange={handleChange}
         />{" "}
-        Theme five
+        5. Letové zásady
         <input
           type="checkbox"
           id="6"
@@ -72,7 +73,7 @@ function ThemesList({ onChange }) {
           value="6"
           onChange={handleChange}
         />{" "}
-        Theme six
+        6. Provozní postupy
         <input
           type="checkbox"
           id="7"
@@ -80,7 +81,23 @@ function ThemesList({ onChange }) {
           value="7"
           onChange={handleChange}
         />{" "}
-        Theme seven
+        7. Provedení a plánování letu
+        <input
+          type="checkbox"
+          id="8"
+          name="themes"
+          value="8"
+          onChange={handleChange}
+        />{" "}
+        8. Obecné znalosti o letadle
+        <input
+          type="checkbox"
+          id="9"
+          name="themes"
+          value="9"
+          onChange={handleChange}
+        />{" "}
+        9. Navigace
       </div>
     </div>
   );

@@ -29,66 +29,6 @@ body {
   padding: 20px;
 }
 
-.score-section {
-  font-size: 24px;
-  width: auto;
-  max-width: 700px;
-  height: auto;
-}
-
-.question-section {
-  width: 100%;
-  position: relative;
-  padding: 10px;
-}
-
-.question-count {
-  margin-bottom: 20px;
-}
-
-.question-count span {
-  font-size: 28px;
-}
-
-.question-text {
-  margin-bottom: 12px;
-}
-
-.timer-text {
-  background: rgb(230, 153, 12);
-  padding: 15px;
-  margin-top: 20px;
-  margin-right: 20px;
-  border: 5px solid rgb(255, 189, 67);
-  border-radius: 15px;
-  text-align: center;
-}
-
-.start {
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.option-page {
-  border: #16c5ec;
-  border-radius: 20px;
-}
-
-.option {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.answer-section {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 button {
   margin-left: auto;
   margin-right: auto;
@@ -105,18 +45,9 @@ button {
   border: none;
 }
 
-.correct {
-  background-color: #2f922f;
-}
-
-.incorrect {
-  background-color: #ff3333;
-}
-
-button:hover {
-  background-color: #10abcd;
-}
-
-button:focus {
-  outline: none;
+.start {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
