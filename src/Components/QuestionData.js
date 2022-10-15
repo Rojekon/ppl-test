@@ -77,7 +77,7 @@ function QuestionData(props) {
             <>
               <div className="question-section">
                 <div className="question-count">
-                  <span>Question {currentQuestion + 1}</span>/{newArr.length}
+                  <span>{currentQuestion + 1}</span>/{newArr.length}
                 </div>
                 <div className="question-text">
                   {newArr[currentQuestion].question_text}
@@ -113,7 +113,7 @@ function QuestionData(props) {
             <>
               <div className="question-section">
                 <div className="question-count">
-                  <span>Question {currentQuestion + 1}</span>/{newArr.length}
+                  <span>{currentQuestion + 1}</span>/{newArr.length}
                 </div>
                 <div className="question-text">
                   {newArr[currentQuestion].question_text}

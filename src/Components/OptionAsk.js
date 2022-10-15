@@ -19,34 +19,62 @@ function OptionAsk({ onChangeAnswer, onChangeThemes }) {
     <div className="option-page">
       <h2>Когда будут появляться ответы?</h2>
       <form onChange={onChangeValueAnswer}>
-        <p>
+        <p className="option-1">
           <input
+            className="radio"
             type="radio"
             name="answers"
             value="afteranswer"
             checked={answers === "afteranswer"}
+            id="1"
           />
-          Сразу после подтверждения ответа
+          <label for="1">
+            <span className="radio-custom-button"></span>
+            Сразу после подтверждения ответа
+          </label>
         </p>
-        <p>
-          <input type="radio" name="answers" value="aftertest" />
-          По окончании теста
+        <p className="option-1">
+          <input
+            className="radio"
+            type="radio"
+            name="answers"
+            value="aftertest"
+            id="2"
+          />
+          <label for="2">
+            <span className="radio-custom-button"></span>
+            По окончании теста
+          </label>
         </p>
       </form>
       <h2>Формат теста</h2>
       <form onChange={onChangeValueThemes}>
-        <p>
+        <p className="option-2">
           <input
+            className="radio"
             type="radio"
             name="themes"
             value="allthemes"
             checked={themes === "allthemes"}
+            id="3"
           />
-          Все темы
+          <label for="3">
+            <span className="radio-custom-button"></span>
+            Все темы
+          </label>
         </p>
-        <p>
-          <input type="radio" name="themes" value="choosethemes" />
-          Выбрать отдельные секции
+        <p className="option-2">
+          <input
+            className="radio"
+            type="radio"
+            name="themes"
+            value="choosethemes"
+            id="4"
+          />
+          <label for="4">
+            <span className="radio-custom-button"></span>
+            Выбрать отдельные секции
+          </label>
         </p>
       </form>
     </div>

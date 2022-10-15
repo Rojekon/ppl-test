@@ -66,7 +66,9 @@ function App() {
       {showStart ? (
         <div className="start">
           <Start />
-          <button onClick={hideStart}>Start</button>
+          <button className="start-button" onClick={hideStart}>
+            Start
+          </button>
         </div>
       ) : (
         <>
