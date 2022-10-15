@@ -99,7 +99,14 @@ function QuestionData(props) {
                     {answerOption.text}
                   </li>
                 ))}
-                <button onClick={newQuestion}>Next</button>
+                <button
+                  onClick={() => {
+                    newQuestion();
+                    ToggleClass();
+                  }}
+                >
+                  Next
+                </button>
               </div>
             </>
           ) : (

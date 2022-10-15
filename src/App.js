@@ -21,6 +21,9 @@ function App() {
     let userThemes = newArr;
     let url = "https://ppl-test-app.herokuapp.com/ppl_api/?";
     console.log(userThemes);
+    if (userThemes.length === 0) {
+      userThemes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    }
 
     for (let i = 0; i < userThemes.length; i++) {
       url += "topics=" + userThemes[i] + "&";
@@ -86,6 +89,7 @@ function App() {
                     handleClick();
                   } else {
                     hideOptions();
+                    hideThemeList();
                   }
                 }}
               >
