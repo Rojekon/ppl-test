@@ -21,7 +21,7 @@ function App() {
     let userThemes = newArr;
     let url = "https://ppl-test-app.herokuapp.com/ppl_api/?";
     console.log(userThemes);
-    if (userThemes.length === 0) {
+    if (themesinfo.length === 0) {
       userThemes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     }
 
