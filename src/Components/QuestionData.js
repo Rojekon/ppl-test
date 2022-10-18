@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./componentstyles.css";
 
 function QuestionData(props) {
@@ -7,6 +7,32 @@ function QuestionData(props) {
   const [score, setScore] = useState(0);
   const [isActive, setActive] = useState("false");
   const { array, answers } = props;
+
+  const timeArr = array
+    .map((nextArr) => {
+      return nextArr.time;
+    })
+    .reduce((el, number) => el + number, 0);
+
+  const [seconds, setSeconds] = useState(59);
+  const [minutes, setMinutes] = useState(timeArr - 1);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds(seconds - 1);
+      }
+      if (seconds === 0) {
+        if (minutes === 0) {
+          setShowScore(true);
+        } else {
+          setMinutes((m) => m - 1);
+          setSeconds(59);
+        }
+      }
+    }, 1000);
+    return () => clearInterval(id);
+  }, [seconds]);
 
   function ToggleClass() {
     setActive(!isActive);
@@ -31,12 +57,11 @@ function QuestionData(props) {
 
   function newQuestion() {
     const nextQuestion = currentQuestion + 1;
-    {
-      if (nextQuestion < newArr.length) {
-        setCurrentQuestion(nextQuestion);
-      } else {
-        setShowScore(true);
-      }
+
+    if (nextQuestion < newArr.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setShowScore(true);
     }
   }
 
@@ -78,6 +103,9 @@ function QuestionData(props) {
               <div className="question-section">
                 <div className="question-count">
                   <span>{currentQuestion + 1}</span>/{newArr.length}
+                </div>
+                <div className="timer">
+                  {minutes}:{seconds}
                 </div>
                 <div className="question-text">
                   {newArr[currentQuestion].question_text}

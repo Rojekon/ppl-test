@@ -36,7 +36,7 @@ function ThemesList({ onChange }) {
               onChange={handleChange}
             />{" "}
             <label for="1" className="label">
-              1. Právní předpisy v oblasti letectví
+              Právní předpisy v oblasti letectví
             </label>
           </li>
           <li className="checkbox-group">
@@ -48,7 +48,7 @@ function ThemesList({ onChange }) {
               onChange={handleChange}
             />{" "}
             <label for="2" className="label">
-              2. Lidská výkonnost
+              Lidská výkonnost
             </label>
           </li>
           <li className="checkbox-group">
@@ -60,7 +60,7 @@ function ThemesList({ onChange }) {
               onChange={handleChange}
             />{" "}
             <label for="3" className="label">
-              3. Meteorologie
+              Meteorologie
             </label>
           </li>
           <li className="checkbox-group">
@@ -72,7 +72,7 @@ function ThemesList({ onChange }) {
               onChange={handleChange}
             />{" "}
             <label for="4" className="label">
-              4. Komunikace
+              Komunikace
             </label>
           </li>
           <li className="checkbox-group">
@@ -84,7 +84,7 @@ function ThemesList({ onChange }) {
               onChange={handleChange}
             />{" "}
             <label for="5" className="label">
-              5. Letové zásady
+              Letové zásady
             </label>
           </li>
           <li className="checkbox-group">
@@ -96,7 +96,7 @@ function ThemesList({ onChange }) {
               onChange={handleChange}
             />{" "}
             <label for="6" className="label">
-              6. Provozní postupy
+              Provozní postupy
             </label>
           </li>
           <li className="checkbox-group">
@@ -108,7 +108,7 @@ function ThemesList({ onChange }) {
               onChange={handleChange}
             />{" "}
             <label for="7" className="label">
-              7. Provedení a plánování letu
+              Provedení a plánování letu
             </label>
           </li>
           <li className="checkbox-group">
@@ -120,7 +120,7 @@ function ThemesList({ onChange }) {
               onChange={handleChange}
             />{" "}
             <label for="8" className="label">
-              8. Obecné znalosti o letadle
+              Obecné znalosti o letadle
             </label>
           </li>
           <li className="checkbox-group">
@@ -132,7 +132,7 @@ function ThemesList({ onChange }) {
               onChange={handleChange}
             />{" "}
             <label for="9" className="label">
-              9. Navigace
+              Navigace
             </label>
           </li>
         </ul>
