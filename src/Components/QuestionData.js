@@ -6,6 +6,7 @@ function QuestionData(props) {
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
   const [isActive, setActive] = useState("false");
+  const [answer, setAnswer] = useState("");
   const { array, answers } = props;
 
   const timeArr = array
@@ -76,6 +77,13 @@ function QuestionData(props) {
     return correctanswer;
   }
 
+  function onChangeValueAnswer(event) {
+    setAnswer(event.target.value);
+    if (event.target.value) {
+      ToggleClass();
+    }
+  }
+
   return (
     <>
       {showScore ? (
@@ -99,49 +107,63 @@ function QuestionData(props) {
       ) : (
         <>
           {afterAnswer === "afteranswer" ? (
-            <>
+            <div className="question-section">
+              <div className="question-count">
+                <span>{currentQuestion + 1}</span>/{newArr.length}
+              </div>
+              <div className="timer">
+                {minutes}:{seconds}
+              </div>
+              <div className="question-text">
+                {newArr[currentQuestion].question_text}
+              </div>
+
+              <div className="answer-section">
+                {newArr[currentQuestion].answers.map((answerOption) => (
+                  <form onChange={onChangeValueAnswer}>
+                    <input
+                      type="radio"
+                      name="answer"
+                      value={answerOption.text}
+                      checked={answer === answerOption.text}
+                      id={answerOption.text}
+                    />
+                    <label for={answerOption.text}>
+                      <li
+                        onClick={() => {
+                          handleAnswerOptionClick(answerOption.is_correct);
+                        }}
+                        className={
+                          isActive
+                            ? correctanswer
+                            : changeClass(answerOption.is_correct)
+                        }
+                      >
+                        {answerOption.text}
+                      </li>
+                    </label>
+                  </form>
+                ))}
+              </div>
+              <button
+                className="next-button"
+                onClick={() => {
+                  setAnswer("");
+                  newQuestion();
+                  ToggleClass();
+                }}
+              >
+                Next
+              </button>
+            </div>
+          ) : (
+            <div>
               <div className="question-section">
                 <div className="question-count">
                   <span>{currentQuestion + 1}</span>/{newArr.length}
                 </div>
                 <div className="timer">
                   {minutes}:{seconds}
-                </div>
-                <div className="question-text">
-                  {newArr[currentQuestion].question_text}
-                </div>
-              </div>
-              <div className="answer-section">
-                {newArr[currentQuestion].answers.map((answerOption) => (
-                  <li
-                    onClick={() => {
-                      handleAnswerOptionClick(answerOption.is_correct);
-                      ToggleClass();
-                    }}
-                    className={
-                      isActive
-                        ? correctanswer
-                        : changeClass(answerOption.is_correct)
-                    }
-                  >
-                    {answerOption.text}
-                  </li>
-                ))}
-                <button
-                  onClick={() => {
-                    newQuestion();
-                    ToggleClass();
-                  }}
-                >
-                  Next
-                </button>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="question-section">
-                <div className="question-count">
-                  <span>{currentQuestion + 1}</span>/{newArr.length}
                 </div>
                 <div className="question-text">
                   {newArr[currentQuestion].question_text}
@@ -160,7 +182,7 @@ function QuestionData(props) {
                   </li>
                 ))}
               </div>
-            </>
+            </div>
           )}
         </>
       )}

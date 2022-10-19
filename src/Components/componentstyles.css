@@ -17,6 +17,7 @@
   cursor: pointer;
   line-height: 20px;
   display: inline-block;
+  vertical-align: middle;
 }
 
 [type="radio"]:checked + label:before,
@@ -30,6 +31,7 @@
   border: 2px solid #c4c4c4;
   border-radius: 100%;
   background: #c4c4c4;
+  vertical-align: middle;
 }
 [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
@@ -44,6 +46,7 @@
   border-radius: 100%;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
+  vertical-align: middle;
 }
 
 [type="radio"]:not(:checked) + label:after {
@@ -96,11 +99,12 @@
 
 input[type="checkbox"] {
   appearance: none;
-  background-color: #c4c4c4;
+  background-color: #ffff;
   width: 18px;
   height: 18px;
-  border: 2px solid #c4c4c4;
-  border-radius: 0.15em;
+  border-radius: 4px;
+  border: 2px solid black;
+  opacity: 80%;
   transform: translateY(-0.3em);
   display: grid;
   place-content: center;
@@ -109,11 +113,11 @@ input[type="checkbox"] {
 input[type="checkbox"]::before {
   content: "";
   border-radius: 0.15em;
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em #16c5ec;
+  box-shadow: inset 15px 15px #16c5ec;
 }
 
 input[type="checkbox"]:checked::before {
@@ -121,8 +125,11 @@ input[type="checkbox"]:checked::before {
 }
 
 .question-section {
-  width: 100%;
-  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 500px;
+  font-size: 18px;
 }
 
 .question-count {
@@ -130,16 +137,22 @@ input[type="checkbox"]:checked::before {
 }
 
 .question-text {
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .answer-section {
-  border: 5px solid#16c5ec;
+  list-style-type: none;
+  text-align: left;
+  max-width: 500px;
+  margin: 30px;
+}
+
+.answer-section li {
+  padding-bottom: 20px;
 }
 
 .answer-default {
   border-radius: 10px;
-  padding: 5px;
 }
 
 .answer-default:hover {
