@@ -11,6 +11,7 @@ function App() {
   const [showOption, setShowOption] = useState(true);
   const [showThemeList, setShowThemeList] = useState(true);
   const [isShownList, setIsShownList] = useState(false);
+  const [showReady, setShowReady] = useState(true);
   const [themes, setThemes] = useState("allthemes");
   const [answers, setAnswers] = useState("afteranswer");
   const [themesinfo, setThemesInfo] = useState([]);
@@ -60,6 +61,16 @@ function App() {
   function hideThemeList() {
     setShowThemeList(false);
   }
+
+  function hideReady() {
+    setShowReady(false);
+  }
+
+  const time = array
+    .map((nextArr) => {
+      return nextArr.time;
+    })
+    .reduce((el, number) => el + number, 0);
 
   return (
     <div className="app">
@@ -119,7 +130,23 @@ function App() {
                 </div>
               ) : (
                 <>
-                  <QuestionData array={array} answers={answers} />
+                  {showReady ? (
+                    <div className="ready-window">
+                      The test will last {time} minutes. Correct answers will be
+                      shown{" "}
+                      {answers === "afteranswer"
+                        ? "immediately"
+                        : "after the test"}
+                      . Good luck!
+                      <div className="ready-button">
+                        <button onClick={hideReady}>Start</button>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <QuestionData array={array} answers={answers} />
+                    </>
+                  )}
                 </>
               )}
             </>

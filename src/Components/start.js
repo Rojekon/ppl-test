@@ -3,11 +3,12 @@ import React from "react";
 function Start() {
   return (
     <div>
-      <p className="test-name">PPL zkusebni test</p>
+      <p className="test-name">Nikita ne perevodit tekst ( . Y . )</p>
       <div className="information">
         <p>
           Мы рады приветствовать вас в нашем приложении по подготовке к экзамену
-          PPL.
+          PPL. Как только Никита перевдет текст на чешский отсюда исчезнет
+          С====3
         </p>
         <p>
           Вам будут предложены вопросы из офицального источника. Вы можете

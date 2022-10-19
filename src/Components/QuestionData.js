@@ -108,16 +108,21 @@ function QuestionData(props) {
         <>
           {afterAnswer === "afteranswer" ? (
             <div className="question-section">
+              <div className="button-res">
+                <button className="restart-button">restart</button>
+              </div>
               <div className="question-count">
                 <span>{currentQuestion + 1}</span>/{newArr.length}
               </div>
               <div className="timer">
-                {minutes}:{seconds}
+                {minutes}:{seconds < 10 ? "0" + seconds : seconds}
               </div>
               <div className="question-text">
                 {newArr[currentQuestion].question_text}
               </div>
-
+              <div className="question-image">
+                <img src={newArr[currentQuestion].image} alt="empty server" />
+              </div>
               <div className="answer-section">
                 {newArr[currentQuestion].answers.map((answerOption) => (
                   <form onChange={onChangeValueAnswer}>
@@ -171,15 +176,27 @@ function QuestionData(props) {
               </div>
               <div className="answer-section">
                 {newArr[currentQuestion].answers.map((answerOption) => (
-                  <li
-                    className="answer-default"
-                    onClick={() => {
-                      handleAnswerOptionClick(answerOption.is_correct);
-                      newQuestion();
-                    }}
-                  >
-                    {answerOption.text}
-                  </li>
+                  <form onChange={onChangeValueAnswer}>
+                    <input
+                      type="radio"
+                      name="answer"
+                      value={answerOption.text}
+                      checked={answer === answerOption.text}
+                      id={answerOption.text}
+                      onClick={newQuestion}
+                    />
+                    <label for={answerOption.text}>
+                      <li
+                        className="answer-default"
+                        onClick={() => {
+                          handleAnswerOptionClick(answerOption.is_correct);
+                          newQuestion();
+                        }}
+                      >
+                        {answerOption.text}
+                      </li>
+                    </label>
+                  </form>
                 ))}
               </div>
             </div>
