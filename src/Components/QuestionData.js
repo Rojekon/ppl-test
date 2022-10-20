@@ -84,32 +84,44 @@ function QuestionData(props) {
     }
   }
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   return (
     <>
       {showScore ? (
-        <div className="score-section">
-          <span>
-            You scored {score} out of {newArr.length}
-          </span>
-          {newArr.map((el) =>
-            el.answers
-              .filter((answer) => answer.is_correct === true)
-              .map((answer) => (
-                <div>
-                  <p>
-                    {el.number}) {el.question_text}
-                  </p>
-                  <p>Correct answer is: {answer.text}</p>
-                </div>
-              ))
-          )}
-        </div>
+        <>
+          <div className="score-section">
+            <span className="score-header">Results</span>
+            <span className="score-header">
+              You scored: {score} / {newArr.length}
+            </span>
+            {newArr.map((el) =>
+              el.answers
+                .filter((answer) => answer.is_correct === true)
+                .map((answer) => (
+                  <div className="score-answers">
+                    <p>
+                      {el.number}) {el.question_text}
+                    </p>
+                    <p>Correct answer is: {answer.text}</p>
+                  </div>
+                ))
+            )}
+          </div>
+          <div className="score-button">
+            <button onClick={refreshPage}>Start over!</button>
+          </div>
+        </>
       ) : (
         <>
           {afterAnswer === "afteranswer" ? (
             <div className="question-section">
               <div className="button-res">
-                <button className="restart-button">restart</button>
+                <button onClick={refreshPage} className="restart-button">
+                  Restart
+                </button>
               </div>
               <div className="question-count">
                 <span>{currentQuestion + 1}</span>/{newArr.length}

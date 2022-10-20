@@ -3,15 +3,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 97vh;
   font-family: "Inter", serif;
   font-style: normal;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 .app {
   min-height: 200px;
-  height: min-content;
   padding: 20px;
+  position: relative;
 }
 
 button {
@@ -69,4 +73,29 @@ button {
 .ready-button button {
   color: black;
   background-color: #ffffff;
+}
+
+.info-names {
+  font-size: 10px;
+  color: #c4c4c4;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+
+a:hover {
+  border-bottom: 1px solid;
+  background: #16c5ec;
+}
+
+a:focus {
+  border-bottom: 1px solid;
+  background: #c4c4c4;
 }

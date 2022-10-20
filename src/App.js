@@ -73,87 +73,100 @@ function App() {
     .reduce((el, number) => el + number, 0);
 
   return (
-    <div className="app">
-      {showStart ? (
-        <div className="start">
-          <Start />
-          <button className="start-button" onClick={hideStart}>
-            Start
-          </button>
-        </div>
-      ) : (
-        <>
-          {showOption ? (
-            <div className="option">
-              <OptionAsk
-                onChangeAnswer={(answers) => {
-                  setAnswers(answers);
-                  console.log(answers);
-                }}
-                onChangeThemes={(themes) => {
-                  setThemes(themes);
-                  console.log(themes);
-                }}
-              />
-              <button
-                onClick={() => {
-                  if (themes === "choosethemes") {
-                    hideOptions();
-                    handleClick();
-                  } else {
-                    hideOptions();
-                    hideThemeList();
-                  }
-                }}
-              >
-                Next
-              </button>
-            </div>
-          ) : (
-            <>
-              {showThemeList ? (
-                <div className="themes">
-                  {isShownList && <ThemesList onChange={handleChange} />}
-                  <button
-                    onClick={() => {
-                      if (array.length === 0) {
-                        alert("Please, select some topics.");
-                      } else {
-                        hideThemeList();
-                        console.log(array);
-                        console.log(answers);
-                      }
-                    }}
-                  >
-                    Submit
-                  </button>
-                </div>
-              ) : (
-                <>
-                  {showReady ? (
-                    <div className="ready-window">
-                      The test will last {time} minutes. Correct answers will be
-                      shown{" "}
-                      {answers === "afteranswer"
-                        ? "immediately"
-                        : "after the test"}
-                      . Good luck!
-                      <div className="ready-button">
-                        <button onClick={hideReady}>Start</button>
+    <>
+      <div className="app">
+        {showStart ? (
+          <div className="start">
+            <Start />
+            <button className="start-button" onClick={hideStart}>
+              Start
+            </button>
+          </div>
+        ) : (
+          <>
+            {showOption ? (
+              <div className="option">
+                <OptionAsk
+                  onChangeAnswer={(answers) => {
+                    setAnswers(answers);
+                    console.log(answers);
+                  }}
+                  onChangeThemes={(themes) => {
+                    setThemes(themes);
+                    console.log(themes);
+                  }}
+                />
+                <button
+                  onClick={() => {
+                    if (themes === "choosethemes") {
+                      hideOptions();
+                      handleClick();
+                    } else {
+                      hideOptions();
+                      hideThemeList();
+                    }
+                  }}
+                >
+                  Next
+                </button>
+              </div>
+            ) : (
+              <>
+                {showThemeList ? (
+                  <div className="themes">
+                    {isShownList && <ThemesList onChange={handleChange} />}
+                    <button
+                      onClick={() => {
+                        if (array.length === 0) {
+                          alert("Please, select some topics.");
+                        } else {
+                          hideThemeList();
+                          console.log(array);
+                          console.log(answers);
+                        }
+                      }}
+                    >
+                      Submit
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    {showReady ? (
+                      <div className="ready-window">
+                        The test will last {time} minutes. Correct answers will
+                        be shown{" "}
+                        {answers === "afteranswer"
+                          ? "immediately"
+                          : "after the test"}
+                        . Good luck!
+                        <div className="ready-button">
+                          <button onClick={hideReady}>Start</button>
+                        </div>
                       </div>
-                    </div>
-                  ) : (
-                    <>
-                      <QuestionData array={array} answers={answers} />
-                    </>
-                  )}
-                </>
-              )}
-            </>
-          )}{" "}
-        </>
-      )}
-    </div>
+                    ) : (
+                      <>
+                        <QuestionData array={array} answers={answers} />
+                      </>
+                    )}
+                  </>
+                )}
+              </>
+            )}{" "}
+          </>
+        )}
+      </div>
+      <div className="info-names">
+        Made by{" "}
+        <a href="https://www.linkedin.com/in/nikita-k-520915193">
+          Nikita Korepanov
+        </a>{" "}
+        &{" "}
+        <a href="https://www.linkedin.com/in/rodion-babkin-85409a233">
+          Rodion Babkin
+        </a>
+        <p>Have questions? Text us: ...@gmail.com</p>
+      </div>
+    </>
   );
 }
 
