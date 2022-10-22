@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./componentstyles.css";
 
 function QuestionData(props) {
+  const [answarr, setAnswarr] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
@@ -79,6 +80,7 @@ function QuestionData(props) {
 
   function onChangeValueAnswer(event) {
     setAnswer(event.target.value);
+    setAnswarr([...answarr, event.target.value]);
     if (event.target.value) {
       ToggleClass();
     }
@@ -97,16 +99,19 @@ function QuestionData(props) {
             <span className="score-header">
               You scored: {score} / {newArr.length}
             </span>
-            {newArr.map((el) =>
+            {newArr.map((el, index) =>
               el.answers
                 .filter((answer) => answer.is_correct === true)
                 .map((answer) => (
-                  <div className="score-answers">
-                    <p>
-                      {el.number}) {el.question_text}
-                    </p>
-                    <p>Correct answer is: {answer.text}</p>
-                  </div>
+                  <>
+                    <div className="score-answers">
+                      <p>
+                        {el.number}) {el.question_text}
+                      </p>
+                      <p>Correct answer is: {answer.text}</p>
+                      <p>Your answer is:{answarr[index]}</p>
+                    </div>
+                  </>
                 ))
             )}
           </div>
@@ -118,16 +123,18 @@ function QuestionData(props) {
         <>
           {afterAnswer === "afteranswer" ? (
             <div className="question-section">
-              <div className="button-res">
-                <button onClick={refreshPage} className="restart-button">
-                  Restart
-                </button>
-              </div>
-              <div className="question-count">
-                <span>{currentQuestion + 1}</span>/{newArr.length}
-              </div>
-              <div className="timer">
-                {minutes}:{seconds < 10 ? "0" + seconds : seconds}
+              <div className="top-section">
+                <div className="button-res">
+                  <button onClick={refreshPage} className="restart-button">
+                    Restart
+                  </button>
+                </div>
+                <div className="question-count">
+                  <span>{currentQuestion + 1}</span>/{newArr.length}
+                </div>
+                <div className="timer">
+                  {minutes}:{seconds < 10 ? "0" + seconds : seconds}
+                </div>
               </div>
               <div className="question-text">
                 {newArr[currentQuestion].question_text}

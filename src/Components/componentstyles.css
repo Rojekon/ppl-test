@@ -70,10 +70,10 @@
   border-radius: 20px;
   border: 5px solid #16c5ec;
   padding: 30px;
+  font-size: 18px;
 }
 
 .checkboxes {
-  padding: 20px;
   max-width: 320px;
   border-radius: 5px;
 }
@@ -128,12 +128,17 @@ input[type="checkbox"]:checked::before {
   justify-content: center;
   align-items: center;
   text-align: center;
-  max-width: 500px;
-  font-size: 18px;
+  max-width: 600px;
 }
 
 .button-res {
   display: inline-block;
+}
+
+.top-section {
+  margin: 20px;
+  max-width: 600px;
+  min-width: 300px;
 }
 
 .restart-button {
@@ -164,7 +169,8 @@ input[type="checkbox"]:checked::before {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 80%;
+  max-width: 600px;
+  max-height: 250px;
   margin: 10%;
   background: #f0f0f0;
   border-radius: 5px;
@@ -172,19 +178,40 @@ input[type="checkbox"]:checked::before {
 }
 
 .question-text {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-size: large;
 }
 
 .answer-section {
   list-style-type: none;
   text-align: left;
-  max-width: 500px;
-  margin: 30px;
+  max-width: 550px;
+  min-width: 300px;
+  margin: 16px;
+  max-height: 150px;
+  overflow-y: scroll;
+}
+
+.answer-section::-webkit-scrollbar {
+  width: 8px;
+  background-color: #e8e8e8;
+  border-radius: 10px;
+}
+
+.answer-section::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #16c5ec;
+}
+
+.answer-section::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #f9f9fd;
 }
 
 .answer-section li {
   margin-bottom: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 14px;
 }
 
 .answer-default {
