@@ -180,6 +180,7 @@ input[type="checkbox"]:checked::before {
 .question-text {
   margin-bottom: 10px;
   font-size: large;
+  min-width: 350px;
 }
 
 .answer-section {
@@ -211,7 +212,9 @@ input[type="checkbox"]:checked::before {
 
 .answer-section li {
   margin-bottom: 10px;
+  padding: 5px;
   padding-bottom: 14px;
+  min-width: 300px;
 }
 
 .answer-default {
@@ -225,11 +228,13 @@ input[type="checkbox"]:checked::before {
 .answer-correct {
   background-color: #33e833;
   border-radius: 10px;
+  opacity: 50%;
 }
 
 .answer-incorrect {
   background-color: #eb0000;
   border-radius: 10px;
+  opacity: 50%;
 }
 
 button:hover {

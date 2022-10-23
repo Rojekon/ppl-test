@@ -172,9 +172,13 @@ function QuestionData(props) {
               <button
                 className="next-button"
                 onClick={() => {
-                  setAnswer("");
-                  newQuestion();
-                  ToggleClass();
+                  if (answer === "") {
+                    alert("Choose answer.");
+                  } else {
+                    setAnswer("");
+                    newQuestion();
+                    ToggleClass();
+                  }
                 }}
               >
                 Next
