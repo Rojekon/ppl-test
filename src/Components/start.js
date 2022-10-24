@@ -3,26 +3,23 @@ import React from "react";
 function Start() {
   return (
     <div>
-      <p className="test-name">Nikita ne perevodit tekst ( . Y . )</p>
+      <p className="test-name">Praktický test ke zkouškám z teorie PPL/LAPL</p>
       <div className="information">
         <p>
-          Мы рады приветствовать вас в нашем приложении по подготовке к экзамену
-          PPL. Как только Никита перевдет текст на чешский отсюда исчезнет
-          С====3
+          Vítáme vás v naší aplikaci pro přípravu na zkoušky PPL/LAPL.
         </p>
         <p>
-          Вам будут предложены вопросы из офицального источника. Вы можете
-          выбрать: пройти тест целиком или потренировать отдельные секции.
+          Dotazy vám budou kladeny z oficiálního zdroje: s využitím databáze zkušebních otázek firmy Aircademy GmbH.
         </p>
         <p>
           Z české verze této databáze je přibližně 75 % otázek zveřejněno zde,
           zbytek je důvěrný. Ve stejném poměru, tj. 75 % ku 25 %, jsou i otázky
           obsažené ve zkušebních testech zkoušek z teoretických znalostí PPL a
-          LAPL (A/H).
+          LAPL.
         </p>
         <p>
           Ke každé zveřejněné otázce jsou navrženy 4 odpovědi, z nichž jen jedna
-          je správná. Ta je označena zatržením.
+          je správná. Můžete absolvovat celý test nebo procvičit jednotlivá témata.
         </p>
       </div>
     </div>

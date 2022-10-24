@@ -79,7 +79,7 @@ function App() {
           <div className="start">
             <Start />
             <button className="start-button" onClick={hideStart}>
-              Start
+              Spustit test
             </button>
           </div>
         ) : (
@@ -107,7 +107,7 @@ function App() {
                     }
                   }}
                 >
-                  Next
+                  Další
                 </button>
               </div>
             ) : (
@@ -126,21 +126,21 @@ function App() {
                         }
                       }}
                     >
-                      Submit
+                      Potvrdit
                     </button>
                   </div>
                 ) : (
                   <>
                     {showReady ? (
                       <div className="ready-window">
-                        The test will last {time} minutes. Correct answers will
-                        be shown{" "}
+                        Test bude trvat {time} minut. Správné odpovědi se 
+                        zobrazí{" "}
                         {answers === "afteranswer"
-                          ? "immediately"
-                          : "after the test"}
-                        . Good luck!
+                          ? "hned po odpovědi"
+                          : "po testu"}
+                        . Hodně štěstí!!
                         <div className="ready-button">
-                          <button onClick={hideReady}>Start</button>
+                          <button onClick={hideReady}>Spustit</button>
                         </div>
                       </div>
                     ) : (
@@ -164,7 +164,7 @@ function App() {
         <a href="https://www.linkedin.com/in/rodion-babkin-85409a233">
           Rodion Babkin
         </a>
-        <p>Have questions? Text us: ...@gmail.com</p>
+        <p>Have questions? Text us: krpnv.nv@gmail.com</p>
       </div>
     </>
   );

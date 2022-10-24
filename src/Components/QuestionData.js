@@ -115,9 +115,9 @@ function QuestionData(props) {
       {showScore ? (
         <>
           <div className="score-section">
-            <span className="score-header">Results</span>
+            <span className="score-header">Výsledek</span>
             <span className="score-header">
-              You scored: {score} / {newArr.length}
+              Získali jste: {score} / {newArr.length}
             </span>
             {newArr.map((el, index) =>
               el.answers
@@ -128,15 +128,15 @@ function QuestionData(props) {
                       <p>
                         {el.number}) {el.question_text}
                       </p>
-                      <p>Correct answer is: {answer.text}</p>
-                      <p>Your answer is:{answarr[index]}</p>
+                      <p>Správná odpověď je: {answer.text}</p>
+                      <p>Vaše odpověď je:{answarr[index]}</p>
                     </div>
                   </>
                 ))
             )}
           </div>
           <div className="score-button">
-            <button onClick={refreshPage}>Start over!</button>
+            <button onClick={refreshPage}>Začít znovu!</button>
           </div>
         </>
       ) : (
@@ -146,7 +146,7 @@ function QuestionData(props) {
               <div className="top-section">
                 <div className="button-res">
                   <button onClick={refreshPage} className="restart-button">
-                    Restart
+                  Restartovat
                   </button>
                 </div>
                 <div className="question-count">
@@ -199,7 +199,7 @@ function QuestionData(props) {
                   }
                 }}
               >
-                Next
+                Další
               </button>
             </div>
           ) : (
@@ -207,7 +207,7 @@ function QuestionData(props) {
               <div className="question-section">
                 <div className="button-res">
                   <button onClick={refreshPage} className="restart-button">
-                    Restart
+                    Restartovat
                   </button>
                 </div>
                 <div className="question-count">

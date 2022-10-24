@@ -24,7 +24,7 @@ function ThemesList({ onChange }) {
 
   return (
     <div className="theme-list">
-      <h1>Choose your themes:</h1>
+      <h1>Vyberte si svá témata.:</h1>
       <div>
         <ul className="checkboxes">
           <li className="checkbox-group">

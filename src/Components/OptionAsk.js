@@ -17,7 +17,7 @@ function OptionAsk({ onChangeAnswer, onChangeThemes }) {
 
   return (
     <div className="option-page">
-      <h2>Когда будут появляться ответы?</h2>
+      <h2>Zobrazení správných odpovědí</h2>
       <form onChange={onChangeValueAnswer}>
         <p className="option-1">
           <input
@@ -30,7 +30,7 @@ function OptionAsk({ onChangeAnswer, onChangeThemes }) {
           />
           <label for="1">
             <span className="radio-custom-button"></span>
-            Сразу после подтверждения ответа
+            Po ukončení otázky
           </label>
         </p>
         <p className="option-1">
@@ -43,11 +43,11 @@ function OptionAsk({ onChangeAnswer, onChangeThemes }) {
           />
           <label for="2">
             <span className="radio-custom-button"></span>
-            По окончании теста
+            Po ukončení testu
           </label>
         </p>
       </form>
-      <h2>Формат теста</h2>
+      <h2>Testovací formát</h2>
       <form onChange={onChangeValueThemes}>
         <p className="option-2">
           <input
@@ -60,7 +60,7 @@ function OptionAsk({ onChangeAnswer, onChangeThemes }) {
           />
           <label for="3">
             <span className="radio-custom-button"></span>
-            Все темы
+            Všechna témata
           </label>
         </p>
         <p className="option-2">
@@ -73,7 +73,7 @@ function OptionAsk({ onChangeAnswer, onChangeThemes }) {
           />
           <label for="4">
             <span className="radio-custom-button"></span>
-            Выбрать отдельные секции
+            Vybraná témata
           </label>
         </p>
       </form>
