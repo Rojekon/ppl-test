@@ -47,7 +47,8 @@ button {
   align-items: center;
   text-align: center;
   cursor: pointer;
-  margin: 24px;
+  margin-top: 16px;
+  margin-bottom: 10px;
   border: none;
 }
 
@@ -95,10 +96,7 @@ button {
 .info-names {
   font-size: 10px;
   color: #c4c4c4;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
 }
 
 a {

@@ -129,6 +129,7 @@ input[type="checkbox"]:checked::before {
   align-items: center;
   text-align: center;
   max-width: 600px;
+  min-height: none;
 }
 
 .button-res {
@@ -136,7 +137,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .top-section {
-  margin: 20px;
+  margin: 10px;
   max-width: 600px;
   min-width: 300px;
 }
@@ -156,31 +157,35 @@ input[type="checkbox"]:checked::before {
   font-size: 20px;
   font-style: bold;
   display: inline-block;
-  margin-left: 20%;
+  margin-left: 90px;
+  margin-right: 90px;
 }
 
 .timer {
-  margin-left: 20%;
   color: #16c5ec;
   display: inline-block;
+  font-family: "Roboto", sans-serif;
 }
 
 .question-image {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  max-width: 600px;
-  max-height: 250px;
-  margin: 10%;
-  background: #f0f0f0;
+  max-width: 300px;
+  max-height: 200px;
+  margin: 10px;
   border-radius: 5px;
   border: 5px solid #16c5ec;
+  transition: 0.2s;
+  background-color: #e8e8e8;
+}
+
+.question-image:hover {
+  transform: scale(1.9);
 }
 
 .question-text {
-  margin-bottom: 10px;
-  font-size: large;
+  margin: 20px;
+  font-size: 16px;
   min-width: 350px;
+  line-height: 140%;
 }
 
 .answer-section {
@@ -191,6 +196,7 @@ input[type="checkbox"]:checked::before {
   margin: 16px;
   max-height: 150px;
   overflow-y: scroll;
+  font-size: 14px;
 }
 
 .answer-section::-webkit-scrollbar {

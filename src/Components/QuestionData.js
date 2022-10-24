@@ -90,6 +90,26 @@ function QuestionData(props) {
     window.location.reload(false);
   }
 
+  function questionImage(j) {
+    if (j === null) {
+      return (
+        <img
+          src="https://ppl-test-app.herokuapp.com/ppl_api/img?image_path=academy_logo.jpg"
+          alt="empty server"
+          className="question-image"
+        />
+      );
+    } else {
+      return (
+        <img
+          src={"https://ppl-test-app.herokuapp.com/ppl_api/img?image_path=" + j}
+          alt="empty server"
+          className="question-image"
+        />
+      );
+    }
+  }
+
   return (
     <>
       {showScore ? (
@@ -136,11 +156,9 @@ function QuestionData(props) {
                   {minutes}:{seconds < 10 ? "0" + seconds : seconds}
                 </div>
               </div>
+              <div>{questionImage(newArr[currentQuestion].image)}</div>
               <div className="question-text">
                 {newArr[currentQuestion].question_text}
-              </div>
-              <div className="question-image">
-                <img src={newArr[currentQuestion].image} alt="empty server" />
               </div>
               <div className="answer-section">
                 {newArr[currentQuestion].answers.map((answerOption) => (
@@ -187,12 +205,18 @@ function QuestionData(props) {
           ) : (
             <div>
               <div className="question-section">
+                <div className="button-res">
+                  <button onClick={refreshPage} className="restart-button">
+                    Restart
+                  </button>
+                </div>
                 <div className="question-count">
                   <span>{currentQuestion + 1}</span>/{newArr.length}
                 </div>
                 <div className="timer">
                   {minutes}:{seconds}
                 </div>
+                <div>{questionImage(newArr[currentQuestion].image)}</div>
                 <div className="question-text">
                   {newArr[currentQuestion].question_text}
                 </div>
