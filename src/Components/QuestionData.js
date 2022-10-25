@@ -34,7 +34,7 @@ function QuestionData(props) {
       }
     }, 1000);
     return () => clearInterval(id);
-  }, [seconds]);
+  }, [seconds, minutes]);
 
   function ToggleClass() {
     setActive(!isActive);
@@ -110,6 +110,13 @@ function QuestionData(props) {
     }
   }
 
+  function userAnswer(t, u) {
+    if (t === u) {
+      return <p style={{ color: "#33e833" }}>Vaše odpověď je: {u}</p>;
+    } else {
+      return <p style={{ color: "#eb0000" }}>Vaše odpověď je: {u}</p>;
+    }
+  }
   return (
     <>
       {showScore ? (
@@ -128,8 +135,11 @@ function QuestionData(props) {
                       <p>
                         {el.number}) {el.question_text}
                       </p>
-                      <p>Správná odpověď je: {answer.text}</p>
-                      <p>Vaše odpověď je:{answarr[index]}</p>
+                      <p>
+                        Vaše odpověď je: Správná odpověď je:{" "}
+                        <span style={{ color: "#16c5ec" }}>{answer.text}</span>
+                      </p>
+                      {userAnswer(answer.text, answarr[index])}
                     </div>
                   </>
                 ))
@@ -146,7 +156,7 @@ function QuestionData(props) {
               <div className="top-section">
                 <div className="button-res">
                   <button onClick={refreshPage} className="restart-button">
-                  Restartovat
+                    Restartovat
                   </button>
                 </div>
                 <div className="question-count">
