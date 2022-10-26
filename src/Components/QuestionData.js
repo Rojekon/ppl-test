@@ -247,7 +247,6 @@ function QuestionData(props) {
                         className="answer-default"
                         onClick={() => {
                           handleAnswerOptionClick(answerOption.is_correct);
-                          newQuestion();
                         }}
                       >
                         {answerOption.text}
