@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./componentstyles.css";
 
 function QuestionData(props) {
@@ -39,6 +40,27 @@ function QuestionData(props) {
   function ToggleClass() {
     setActive(!isActive);
   }
+
+  useEffect(() => {
+    const getFinish = async () => {
+      await axios
+        .get("https://ppl-test-app.herokuapp.com/ppl_api/logs?events=finished")
+        .catch((error) => {
+          console.error(error);
+        });
+    };
+    if (showScore === true) {
+      getFinish();
+    }
+  }, [showScore]);
+
+  const getRestart = async () => {
+    await axios
+      .get("https://ppl-test-app.herokuapp.com/ppl_api/logs?events=start_over")
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const afterAnswer = answers;
   const test = array.map((nextArr) => {
@@ -87,7 +109,7 @@ function QuestionData(props) {
   }
 
   function refreshPage() {
-    window.location.reload(false);
+    setTimeout(window.location.reload(false), 3000);
   }
 
   function questionImage(j) {
@@ -146,7 +168,14 @@ function QuestionData(props) {
             )}
           </div>
           <div className="score-button">
-            <button onClick={refreshPage}>Začít znovu!</button>
+            <button
+              onClick={() => {
+                getRestart();
+                refreshPage();
+              }}
+            >
+              Začít znovu!
+            </button>
           </div>
         </>
       ) : (
@@ -155,7 +184,13 @@ function QuestionData(props) {
             <div className="question-section">
               <div className="top-section">
                 <div className="button-res">
-                  <button onClick={refreshPage} className="restart-button">
+                  <button
+                    onClick={() => {
+                      getRestart();
+                      refreshPage();
+                    }}
+                    className="restart-button"
+                  >
                     Restartovat
                   </button>
                 </div>
@@ -216,7 +251,13 @@ function QuestionData(props) {
             <div>
               <div className="question-section">
                 <div className="button-res">
-                  <button onClick={refreshPage} className="restart-button">
+                  <button
+                    onClick={() => {
+                      getRestart();
+                      refreshPage();
+                    }}
+                    className="restart-button"
+                  >
                     Restartovat
                   </button>
                 </div>

@@ -21,7 +21,6 @@ function App() {
     const newArr = Object.values(themesinfo).flat();
     let userThemes = newArr;
     let url = "https://ppl-test-app.herokuapp.com/ppl_api/?";
-    console.log(userThemes);
     if (themesinfo.length === 0) {
       userThemes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     }
@@ -41,6 +40,19 @@ function App() {
 
     getData();
   }, [themesinfo]);
+
+  useEffect(() => {
+    const getStart = async () => {
+      await axios
+        .get("https://ppl-test-app.herokuapp.com/ppl_api/logs?events=start")
+        .catch((error) => {
+          console.error(error);
+        });
+    };
+    if (showReady === false) {
+      getStart();
+    }
+  }, [showReady]);
 
   function handleChange(themesinfo) {
     setThemesInfo(themesinfo);
@@ -89,11 +101,9 @@ function App() {
                 <OptionAsk
                   onChangeAnswer={(answers) => {
                     setAnswers(answers);
-                    console.log(answers);
                   }}
                   onChangeThemes={(themes) => {
                     setThemes(themes);
-                    console.log(themes);
                   }}
                 />
                 <button
@@ -121,8 +131,6 @@ function App() {
                           alert("Please, select some topics.");
                         } else {
                           hideThemeList();
-                          console.log(array);
-                          console.log(answers);
                         }
                       }}
                     >
@@ -133,7 +141,7 @@ function App() {
                   <>
                     {showReady ? (
                       <div className="ready-window">
-                        Test bude trvat {time} minut. Správné odpovědi se 
+                        Test bude trvat {time} minut. Správné odpovědi se
                         zobrazí{" "}
                         {answers === "afteranswer"
                           ? "hned po odpovědi"

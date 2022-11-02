@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+# Welcome to Private Pilot License Test!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### This is my first commercial project, it's created for private pilots. In this app they can evaluate their theoretical knowledge.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Let's begin!
 
-### `npm start`
+### `Start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This is "Welcome" section with little description.
+![start](./test_examples/start_page.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+### `Options`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In this section the user needs to select options for his test.
 
-### `npm run build`
+![option_before](./test_examples/option_default.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. When will the answers be shown?
+   - after answer
+   - after test
+2. Choose themes or work with all topics?
+   - whole test
+   - choose themes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![option_after](./test_examples/option_selected.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+For best example I choose "after answer" and "choose themes".
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `Themes list`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Now we choose topics what we need.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![topics_not](./test_examples/themes_not_selected.png)
+![topics_not](./test_examples/themes_selected.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### `Preparation page`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+On this page user is informed about selected options and the time given to pass test.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![preparation](./test_examples/preparation_page.png)
 
-### Code Splitting
+In our case: we have 40 minutes for all test and answers will be shown immediately after selection.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Test beggining!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### `Typycal question page`
 
-### Making a Progressive Web App
+![question](./test_examples/question.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+We got here:
 
-### Advanced Configuration
+- top section
+- logo of academy
+- question
+- four answers with custom scrollbar
+- "next" button
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![anwer](./test_examples/answer.png)
 
-### Deployment
+Same question, but answered.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+### `This is what it looks like when answers are shown after test`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![question2](./test_examples/question2.png)
+
+---
+
+## Let's take a closer look!
+
+### `Top section`
+
+![top](./test_examples/top_section.png)
+
+We can see here:
+
+- "restart" button
+- questions counter
+- countdown timer
+
+---
+
+### `Logo or image section`
+
+To answer some questions, the user needs to look at the image.
+
+![img_def](./test_examples/image_default.png)
+
+In some cases, the user can enlarge the image if they hover over it with mouse.
+
+![img_zm](./test_examples/image_zoom.png)
+
+---
+
+### `Score section`
+
+When time is up or the user has solved the test, the score section is displayed.
+
+![score](./test_examples/score.png)
+
+We can see the total score here.
+
+And more detailed statistics.
+
+For example: if user's answer is not correct, then it is colored red.<br>
+It also works to other side: if the answer is correct - the color is green.
+
+If the user wants to try again, he can click the "start over" button.
+
+---
+
+## Well, this was the introductory part with my first commertial project, now let's talk about all the experience that I got!
+
+#### `In this project, I experienced the full power of React. <br> I can't imagine how much time it would take to write the same test but in vanilla JS. The best thing I liked to work with is React Hooks. They make development easier and faster. <br>`
+
+#### `I learned how to work with props, pass from parent to child, from child to parent, from child to child.`
+
+#### `It was the first project in which there are interactions with the backend.`
+
+#### `The interesting part not only to develop, but also to stylize the whole project, making changes from the original style. Making it responsive and create custom elements.`
+
+## Thanks for your attention! If you have any questions or job offers, write to me: <rodionbabkin00@gmail.com>
